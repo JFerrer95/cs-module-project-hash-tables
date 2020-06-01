@@ -21,8 +21,8 @@ class HashTable:
     """
 
     def __init__(self, capacity):
-        self.data = [HashTableEntry(None, None) * capacity]
-
+        self.data = [HashTableEntry(None, None)]  * capacity
+        self.capacity = capacity
 
     def get_num_slots(self):
         """
@@ -86,7 +86,7 @@ class HashTable:
         Implement this.
         """
         # Your code here
-        index = hash_index(key)
+        index = self.hash_index(key)
         self.data[index] = HashTableEntry(key, value)
 
 
@@ -110,7 +110,12 @@ class HashTable:
 
         Implement this.
         """
+        index = self.hash_index(key)
         
+        if self.data[index] is not None:
+            return self.data[index].value 
+
+        return None
 
 
     def resize(self, new_capacity):
