@@ -4,8 +4,8 @@ def word_count(s):
     # Your code here
     counts = {}
 
-    tr = str.maketrans('', '', '":;,.-+=/\\|[]{}()*^&')
-    s = s.translate(tr).lower().split()
+    ignoreList = str.maketrans('', '', '":;,.-+=/\\|[]{}()*^&')
+    s = s.translate(ignoreList).lower().split()
 
     for split in s:
         if split in counts:
