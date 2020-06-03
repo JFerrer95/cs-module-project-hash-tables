@@ -1,7 +1,13 @@
 def no_dups(s):
     # Your code here
-
-
+    w = s.split()
+    singles = []
+    duplicates = {}
+    for x in w:
+        if x not in duplicates:
+            singles.append(x)
+            duplicates[x] = True
+    return " ".join(singles)
 
 if __name__ == "__main__":
     print(no_dups(""))
